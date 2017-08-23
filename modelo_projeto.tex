@@ -96,7 +96,7 @@
 %% ====================================
 %% ====================================
 
-\title{Projeto de Cabeamento Estruturado - Paço Municipal Assis Chateaubriand}					% Title of your article goes here
+\title{Projeto de Cabeamento Estruturado - Escritório de Contabilidade RN}					% Title of your article goes here
 
 %% ====================================
 
@@ -133,7 +133,7 @@
 %% mude o resumo  do projeto
 %% ====================================
 %% ====================================
-\initial{E}\textbf{ste projeto tem a intenção de propor uma reestruturação da rede de dados do paço municipal da prefeitura de Assis Chateaubriand. Contempla um levantamento da situação atual, incluindo seus ativos e passivos, planta física e lógica, e apresenta uma proposta de cabeamento estruturado dentro das normas da XXX-XXX, abrangendo os itens citados anteriormente bem como levantamento de quantidade/custo, plano de certificação e orçamento.}
+\initial{E}\textbf{ste projeto tem a intenção de propor uma reestruturação da rede de dados do Escritório de Contabilidade RN. Contempla um levantamento da situação atual, incluindo seus ativos e passivos, planta física e lógica, e apresenta uma proposta de cabeamento estruturado dentro das normas da XXX-XXX, abrangendo os itens citados anteriormente bem como levantamento de quantidade/custo, plano de certificação e orçamento.}
 
 %% ====================================
 \begin{figure}
@@ -175,7 +175,7 @@ Explique quais seriam os benefícios provenientes após a execução deste proje
 
 
 \section{Estado atual}
-A rede atualmente possui trinta pontos de acesso, e a sua expansão se deu de forma desordenada, desconsiderando qualquer tipo de regra de cabeamento estruturado, desde seu início a dez anos atrás quando apenas dez máquinas faziam uso dos recursos disponíveis. Recentemente a empresa adquiriu um switch de 16(dezesseis) portas gerenciável porém, ainda utiliza dois hubs de 16(dezesseis) portas em sua estrutura, 3 (três) impressoras de rede.
+A rede atualmente possui vinte e nove pontos de acesso, e a sua expansão se deu de forma desordenada, desconsiderando qualquer tipo de regra de cabeamento estruturado, desde seu início a dez anos atrás quando apenas dez máquinas faziam uso dos recursos disponíveis. Recentemente a empresa adquiriu um switch de 16(dezesseis) portas gerenciável porém, ainda utiliza dois hubs de 16(dezesseis) portas em sua estrutura, 3 (três) impressoras de rede.
 
 \begin{itemize}
 	\item •	Passivos de rede atuais: Cabos par trançado categoria 5E sem blindagem, conectores rj45, 2 (dois) hubs de 16(dezesseis) portas. 
@@ -190,14 +190,14 @@ Analisando a rede verificou-se que a mesma não atende o requisitos mínimos par
 Crie uma enumeração dos requisitos do projeto.
 
 \section{Usuários e Aplicativos}
-Explique nesta seção os usuários atuais e o perfil de crescimento, se por exemplo, há estimativa na evolução da empresa no que tange a quantidade de usuários, pontos de redes, equipamentos.
+Todos os usuários utilizam o sistema ERP, utilizam o acesso à internet, serviços de impressão via rede. A empresa tem 4 (quatro) contadores, 12 (doze) auxiliares administrativos, 1 (um) recepcionista, 1 (um) gerente e 2 (dois) atendentes de clientes.
  
 
 \subsection{Usuários}
-Crie uma relação da quantidade, perfil de usuários de seu projeto.
+Nesta empresa todos os usuários possuem perfis de administrador local, pois não há um controlador de domínios na rede, apenas um servidor de banco de dados e do sistema ERP. 
 
 \subsection{Aplicativos}
-Crie uma relação dos aplicativos e seus níveis críticos de uso.
+O sistema da empresa envolve módulos de contabilidade, módulos de recursos humanos, cadastro de clientes, gerenciador de e-mails e agenda. Além disso, o contato com os clientes e realizado através do e-mail, incluindo pedidos de serviço e transferência de documentos, o que exige estabilidade da rede e do acesso à internet.
 
 
 \section{Estrutura predial existente}

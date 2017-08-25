@@ -21,6 +21,7 @@
 \usepackage{subfig}													% Subfigures
 \usepackage{booktabs}												% Nicer tables
 \usepackage{fix-cm}													% Custom fontsizes
+\usepackage{float}
 \usepackage[utf8]{inputenc}
 \usepackage[top=2.5cm, bottom=2.5cm, left=2.5cm, right=2.5cm]{geometry}
 \usepackage[ddmmyyyy]{datetime}
@@ -165,29 +166,31 @@
 %% ====================================
 %% ====================================
 \section{Introdução}
-Explique nesta primeira seção qual seria o perfil do caso. Perfil do cliente, quantidade de colaboradores, quantidade de equipamentos de TI atualmente.
+O objetivo desse projeto é criar uma infraestrutura de rede para o escritório de contabilidade fictício, o qual foi denominado RN, possibilitando a organização e restruturação da rede atual, a qual conta com equipamentos e instalações inadequadas, causando problemas como indisponibilidade, perda de dados, e lentidão excessiva em seus processos. 
+Atualmente cerca de vinte (20) usuários compõem a equipe de funcionários ativos na rede, há também 3 (três) impressoras, 1(um) ponto de acesso sem fio, 1 (um) servidor e 1(um) roteador.
+Com base nas necessidades, o projeto irá priorizar pela organização, padronização e aquisição de equipamentos condizentes com a realidade e compatíveis com futuras melhorias, levando sempre em consideração o melhor custo e benefício. 
 
-Indique também nesta seção o escopo do projeto.
-
-Apresente um overview do parque tecnológico do caso.
 \subsection{Benefícios}
-Explique quais seriam os benefícios provenientes após a execução deste projeto.
 
+\begin{itemize}
+	\item A aquisição de novos equipamentos e a padronização das instalações tornará a rede bem mais estável;
+	\item As conexões serão identificadas agilizando manutenções futuras e tornando problemas mais específicos;
+	\item O novo plano de internet fibra óptica trará mais desempenho para os processos que dependem de acesso via web;
+	\item A organização do cabeamento trará aos usuário e clientes uma sensação de conforto e confiança, uma vez que, a exposição dos cabos gerava problemas diários; 
+	\item Facilidade na ativação de novos pontos de rede;
+\end{itemize}
 
 \section{Estado atual}
 A rede atualmente possui vinte e nove pontos de acesso, e a sua expansão se deu de forma desordenada, desconsiderando qualquer tipo de regra de cabeamento estruturado, desde seu início a dez anos atrás quando apenas dez máquinas faziam uso dos recursos disponíveis. Recentemente a empresa adquiriu um switch de 16(dezesseis) portas gerenciável porém, ainda utiliza dois hubs de 16(dezesseis) portas em sua estrutura, 3 (três) impressoras de rede.
 
 \begin{itemize}
-	\item •	Passivos de rede atuais: Cabos par trançado categoria 5E sem blindagem, conectores rj45, 2 (dois) hubs de 16(dezesseis) portas. 
-	\item •	Ativos de rede atuais: 1(um) switch 16(dezesseis) portas, roteador, 1 único ponto de acesso wireless de uso residencial.
+	\item Passivos de rede atuais: Cabos par trançado categoria 5E sem blindagem, conectores rj45, 2 (dois) hubs de 16(dezesseis) portas. 
+	\item Ativos de rede atuais: 1(um) switch 24(vinte e quatro) portas, roteador, 1 único ponto de acesso wireless de uso residencial.
 	
 As principais reclamações dos usuários são: Má organização dos cabos, lentidão ao transferir arquivos entre os computadores, queda da conexão durante a execução dos processos, problemas de lentidão quando vários usuários se conectam à rede sem fio.
 Analisando a rede verificou-se que a mesma não atende o requisitos mínimos para um funcionamento adequado, pois o cabeamento, conexões e estrutura física de modo geral, é realizada por pessoal não capacitado, com passivos de baixa qualidade, sem nenhuma certificação.
 
 \end{itemize}
-
-\section{Requisitos}
-Crie uma enumeração dos requisitos do projeto.
 
 \section{Usuários e Aplicativos}
 Todos os usuários utilizam o sistema ERP, utilizam o acesso à internet, serviços de impressão via rede. A empresa tem 4 (quatro) contadores, 12 (doze) auxiliares administrativos, 1 (um) recepcionista, 1 (um) gerente e 2 (dois) atendentes de clientes.
@@ -203,23 +206,58 @@ O sistema da empresa envolve módulos de contabilidade, módulos de recursos hum
 \section{Estrutura predial existente}
 
 A estrutura predial se divide em: Uma sala da gerência, uma sala do administrativo e contabilidade e uma sala para recepção e atendimento aos clientes. O servidor se encontra na mesma sala do pessoal do administrativo. Na sala de recepção e atendimento há três computadores, um no balcão de atendimento e os outros dois, cada um em uma mesa; na sala da gerencia, há um computador e um impressora, na sala contábil e administrativo há seis ilhas de quatro lugares, distribuídas em um espaço quarenta e nove metros quadrados e em um canto dessa sala fica localizado o servidor e a impressora. Por não haver tubulação preexiste na parede e no piso os cabos ficam distribuídos através de canaletas ou até mesmo expostos.
+
+
+
+\begin{figure}[H]
+	No layout da planta pode-se verificar os setores existentes atualmente.
+	\centering
+	\includegraphics[scale=1]{fig1}
+	\caption{Planta Baixa}
+	\label{fig1}
+	\end{figure}
+
 \section{Planta Lógica - Elementos estruturados}
 
-\subsection{Estado atual}
-Deve ter a planta atual, se for o caso
 
-\subsection{Topologia}
-Proposta futura, proposta após implantação.
-Deve conter o diagrama da rede. Atente-se a redundância  e ligações truncadas.
-Deve explicar todos termos e componentes utilizados nestas plantas. Por exemplo: entrance facility, work area, horizontal cabling, etc..
+\begin{figure}[H]
+	Equipamentos e suas devidas ligações lógicas
+	\centering
+	\includegraphics[scale=0.5]{fig2}
+	\caption{Planta lógica}
+	\label{fig2}
+	\end{figure}
+	
 
-Todos os elementos das figuras devem ser explicados. 
-Crie esboço da configuração dos racks e brackets. Explique cada um dos componentes. Você pode criar uma tabela contendo figuras dentro, ou criar uma tabela e incluí-la como imagem. Por exemplo, verifique a tabela \ref{tab1}.
+A tabela a seguir representa a distribuição dos endereços Ips para cada equipamento. Utilizando uma rede /24 (vinte e quatro) tendo em vista que a rede possui um pequeno número de dispositivos conectados. Os ips foram atribuídos manualmente os seguintes dispositivos:  roteador, access point, switch, servidor e impressoras.
+O range para esses dispositivos ficou entre os ips 192.168.0.1 à 192.168.0.20. Os demais computadores do escritório, estão configurados para receber ips dinamicamente assim como os usuários que fizerem uso da conexão sem fio. O DHCP oferece ips que vão de 192.168.0.21 à 192.168.0.50.
+  
+    \begin{figure}[H]
+	\centering
+	\includegraphics[scale=1]{fig5}
+	\caption{Endereços de IP}
+	\label{fig5}
+	\end{figure}
 
-\input{tab1}
+\subsection{Diagrama de Rack}
+	A figura 3 exemplifica como ficará o rack pós implantação
+	\begin{figure}[H]
+	\centering
+	\includegraphics[scale=1]{fig3}
+	\caption{Diagrama de Rack}
+	\label{fig3}
+	\end{figure}
 
 \subsection{Encaminhamento}
-Eletrodutos, calhas, e qualquer material em que os cabos serão alojados/alocados.
+\begin{figure}[H]
+	Eletrodutos, calhas, e pontos de conexão
+	\centering
+	\includegraphics[scale=1.5]{fig4}
+	\caption{Encaminhamento}
+	\label{fig4}
+	\end{figure}
+	
+	
 
 \subsection{Memorial descritivo}
 
@@ -276,76 +314,5 @@ Analisando os pressupostos de \cite{ref3} e \cite{ref4} concluimos que....
 \renewcommand\refname{} %%Referências bibliográficas}  
 \bibliographystyle{ieeetr}
 \bibliography{referencias}  
-
-%% ***********************************************************************
-%% === remover daqui =====================================================
-%% ***********************************************************************
-=================================================
-\section{Elementos textuais - Alguns exemplos}
-
-Esta seção apresenta exemplos de elementos textuais. \textbf{Remova-a da versão final do texto}.
-
-
-\subsection{Colocar elementos em itens}
-
-Texto antes da lista
-
-\begin{itemize}
-	\item First item in a list 
-	\item Second item in a list 
-	\item Third item in a list
-\end{itemize}
-
-\subsubsection{Uma subseção de terceiro nivel}
-
-Exemplo de uma subseção
-
-\subsection{Tabelas}
-
-Utilize o site http://www.tablesgenerator.com/ para elaborar as tabelas de seu trabalho.
-Para adicionar uma tabela utilize: a tag input, passando o arquivo da tabela como parametro
-
-\input{tab2}
-
-Dentro do arquivo você deve definir o label e pode utilizá-lo para referenciar. Exemplo:
-Na tab \ref{tab2} temos a relação de ....
-
-
-Você também pode modificar a tabela manualmente, incluindo, por exemplo h! dentro de sua definição. Veja no exemplo tab2.tex
-
-\subsection{Figuras}
-
-As figuras podem ser no formato PDF, JPG, PNG. Você pode referenciá-las da mesma maneira que tabelas. Exemplo: A figura \ref{fig1} apresenta.....
-
-Não se preocupe o local em que a figura será renderizada em seu texto. Preocupe-se em criar referência para ela, ou seja, toda figura e tabela deve conter pelo menos uma referência no texto.
-
-\begin{figure}
-\centering
-\includegraphics[width=\textwidth]{fig1}
-\caption{Exemplo de figura com escala horizontal}
-\label{fig1}
-\end{figure}
-
-
-\begin{figure}
-	\centering
-	\includegraphics[]{fig2}
-	\caption{Exemplo de figura sem escala}
-	\label{fig2}
-\end{figure}
-
-Você pode rotacionar figuras também. Para isso utilize o parâmetro angle=-90. Repare que a escala da figura foi modificada pelo parametro height. Você também pode utilizar scale
-
-\begin{figure}
-	\centering
-	\includegraphics[height=\textwidth,angle=-90]{fig3}
-	\caption{Exemplo de figura rotacionada}
-	\label{fig3}
-\end{figure}
-
-
-%% ***********************************************************************
-%% === ate aqui    =====  ================================================
-%% ***********************************************************************
 
 \end{document}
